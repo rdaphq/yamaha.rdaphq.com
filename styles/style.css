@@ -16,23 +16,94 @@ html {
 }
 
 body {
+  min-width: 320px;
   font-family: "Geist", sans-serif;
-  background: #111;
+  background: #060606;
   color: #ddd;
+  cursor: none;
+}
+
+.rounded {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  translate: -50% -0.7rem;
+}
+
+#detach-button-host {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+.container {
+  margin-inline: auto;
+  margin-block: 0 3rem;
+  max-width: 1140px;
+  padding: 0 1rem;
+}
+
+.gradient-white {
+  color: transparent;
+  background: linear-gradient(180deg, #fff 0%, #bfd4da 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-right: 0.5rem;
+}
+
+::selection {
+  color: #000;
+  background-color: #32abf1;
 }
 
 .navbar {
-  height: 10vh;
+  gap: 4rem;
+  height: 12vh;
   background: transparent;
   background: linear-gradient(#000000 0%, transparent 80%);
+  transition: boxshadow 0.5s ease, background 0.5s ease, height 0.5s ease;
+}
+.navbar.scrolled {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5647058824);
+  background: #000;
+  height: 7vh;
 }
 .navbar-logo {
   width: 120px;
   position: relative;
   top: 4px;
 }
+.navbar-logo-m {
+  width: 32px;
+  display: none;
+}
+@media (width < 600px) {
+  .navbar {
+    gap: 0;
+  }
+  .navbar-logo {
+    top: 0;
+  }
+  .navbar-logo-d {
+    display: none;
+  }
+  .navbar-logo-m {
+    display: flex;
+  }
+}
 .navbar-link {
-  cursor: pointer;
   font-size: 0.7rem;
   font-style: italic;
   font-weight: 300;
@@ -40,8 +111,8 @@ body {
   transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
 }
 .navbar-link:hover {
-  color: #40d4ee;
-  text-shadow: 0 0 10px #40d4ee;
+  color: #32abf1;
+  text-shadow: 0 0 10px #32abf1;
 }
 .navbar-link a::after {
   content: "↓";
@@ -49,29 +120,196 @@ body {
 }
 
 .hero {
-  overflow: hidden;
-  min-height: 100vh;
+  height: 76vh;
+  position: relative;
+}
+.hero-video {
+  width: 100%;
+  height: 76vh;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(50%);
+  mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+}
+.hero .main-bike {
+  left: 50%;
+  width: 50vw;
+  bottom: -5rem;
+  min-width: 300px;
+  max-width: 650px;
+  transform: translateX(-50%);
+  filter: saturate(180%) contrast(110%) brightness(85%) drop-shadow(0 0 4px rgba(0, 0, 0, 0.5019607843));
+}
+@media (width < 1360px) {
+  .hero .main-bike {
+    width: 44vw;
+  }
+}
+@media (width < 900px) {
+  .hero .main-bike {
+    width: 70vw;
+  }
+}
+
+.start {
+  margin-top: 2rem;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.start-tech {
+  padding: 1.5rem;
+  margin: 0 auto;
+  width: fit-content;
+  border: 2px solid #32abf1;
+  box-shadow: 0 0 0.5rem rgba(64, 212, 238, 0.4392156863);
+  border-radius: 1rem;
+}
+.start-tech img {
+  width: 100px;
+}
+
+.about {
   padding-top: 6rem;
-  background-image: url("../assets/bikes/mt-09/valentin-beauvais-yVUQlyRlJSw-unsplash.jpg");
+  padding-bottom: 3.5rem;
 }
-.hero-logo {
-  width: 80vw;
-  max-width: 400px;
+.about-bg {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(30%);
 }
-@media (width > 1000px) {
-  .hero-logo {
-    width: 60vw;
+.about-text {
+  padding: 0 2rem;
+}
+.about-text h2 {
+  margin-bottom: 1rem;
+}
+.about-text p {
+  font-size: 0.55lh;
+  font-family: "Inter", sans-serif;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5647058824);
+}
+.about-text img {
+  margin: 0 auto;
+  filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.5647058824));
+}
+
+.showcase {
+  padding: 6rem 0;
+  background-color: #ddd;
+}
+.showcase-container {
+  background-color: #ddd;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.showcase-display {
+  width: 100%;
+}
+.showcase-display img {
+  width: 60vw;
+  min-width: 300px;
+  max-width: 800px;
+  transition: opacity 0.5s ease;
+  mix-blend-mode: darken;
+}
+.showcase-display img.fade-out {
+  opacity: 0.5;
+}
+.showcase-selector {
+  background: #111;
+  border-radius: 5rem;
+  box-shadow: 4px 4px 0.5rem rgba(0, 0, 0, 0.2509803922);
+}
+.showcase-selector h3 {
+  background: linear-gradient(180deg, #fff 0%, #bfd4da 80%);
+  padding: 0 0.2rem;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+  margin-left: 0.6rem;
+}
+@media (width < 600px) {
+  .showcase-selector h3 {
+    display: none;
   }
 }
-.hero-bike {
-  width: 80vw;
-  max-width: 700px;
-  filter: contrast(110%) brightness(80%);
+.showcase-selector .color-selector {
+  padding: 0.6rem;
+  width: fit-content;
+  border-radius: 4rem;
 }
-@media (width > 1000px) {
-  .hero-bike {
-    width: 60vw;
+.showcase-selector .color-selector div {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: box-shadow 0.2s ease;
+}
+@media (width < 600px) {
+  .showcase-selector .color-selector div {
+    width: 30px;
+    height: 30px;
   }
+}
+.showcase-selector .color-selector div:hover {
+  box-shadow: 0 0 10px #fff;
+}
+.showcase-selector .color-selector div:first-child {
+  background: linear-gradient(45deg, #bfd4da 50%, #32abf1 50%);
+}
+.showcase-selector .color-selector div:first-child:hover {
+  box-shadow: 0 0 10px #32abf1;
+}
+.showcase-selector .color-selector div:nth-child(2) {
+  background: linear-gradient(45deg, #0046c9 50%, #172746 50%);
+}
+.showcase-selector .color-selector div:nth-child(2):hover {
+  box-shadow: 0 0 10px #0046c9;
+}
+.showcase-selector .color-selector div:last-child {
+  background: linear-gradient(45deg, #000 50%, #202020 50%);
+}
+.showcase-selector .color-selector div:last-child:hover {
+  box-shadow: 0 0 10px #fff;
+}
+
+.gallery {
+  padding: 4rem 0;
+}
+.gallery h2 {
+  font-family: "Special Gothic Expanded One", sans-serif;
+}
+.gallery-images {
+  grid-auto-columns: 400px;
+  grid-template-areas: "box-1 box-2 box-2" "box-3 box-3 box-4";
+}
+@media (width < 700px) {
+  .gallery-images {
+    grid-auto-columns: auto;
+  }
+}
+.gallery-images-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.phrase {
+  padding: 6rem 0;
+}
+.phrase h1 {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-style: italic;
+}
+.phrase img {
+  width: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

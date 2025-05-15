@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} ^i=1$ [NC]
+RewriteRule ^$ /? [L,R=301]
+
+RewriteCond %{QUERY_STRING} ^i=2$ [NC]
+RewriteRule ^$ /? [L,R=301]
