@@ -3,6 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A landing page to present the new Yamaha MT-09 in a modern way. Project by Rdap (@rdaphq).">
+
+    <!-- Meta Tags -->
+    <meta property="og:title" content="MT-09 | The Dark Side of Japan">
+    <meta property="og:description" content="A landing page to present the new Yamaha MT-09 in a modern way. Project by Rdap (@rdaphq).">
+    <meta property="og:type" content="website">
+
+    <!-- Twiiter -->
+    <meta property="og:image" content="assets/favicon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MT-09 | The Dark Side of Japan">
+    <meta name="twitter:description" content="A landing page to present the new Yamaha MT-09 in a modern way. Project by Rdap (@rdaphq).">
+
+    <meta name="author" content="rdaphq">
+    <meta name="publisher" content="rdaphq">
+    <meta name="developer" content="rdaphq">
+    
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="yandex" content="index, follow">
+    <meta name="alexa" content="index, follow">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/favicon.png">
@@ -28,7 +50,7 @@
 
     <nav id="navbar" class="navbar flex items-center justify-center w-full top-0 z-100 fixed">
         <div class="navbar-link">
-            <a id="toAbout">About</a>
+            <a id="toSpecs">Specs</a>
         </div>
 
         <div class="navbar-logo flex items-center justify-center">
@@ -76,7 +98,7 @@
         </div>
     </section>
 
-    <section id="about" class="about relative">
+    <section class="about relative">
         <img class="about-bg absolute top-0 -z-1" src="assets/bikes/mt-09/asset_5.jpg" alt="About Background">
 
         <div class="about-container container">
@@ -89,6 +111,45 @@
                 <p class="text-gray-300">Yamaha's renowned <b>890cc liquid-cooled CP3 engine</b> is light, powerful and provides a thrilling wave of torque from low rpms. A combination of carefully tuned induction sound and distinctive <b>crossplane triple exhaust</b> note provides a resonance which only heightens the feeling of acceleration. Throttle valves are governed by the <b>Yamaha Chip Controlled Throttle (YCC-T) system</b> enabling finer actuation and precise control.</p>
                 <br>
                 <img class="w-18" src="assets/tdsoj.svg" alt="The Dark Side of Japan">
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="specs">
+        <img src="assets/yamaha_white.svg" alt="Yamaha Logo">
+        <h2 class="text-4xl tracking-tighter text-balanced italic gradient-white">Specs and Performance</h2>
+        <div class="specs-container container">
+            <div class="specs-weights-dimensions flex gap-8 md:gap-18 items-center justify-center flex-wrap">
+                <hgroup>
+                    <h2>890cc</h2>
+                    <p>Displacement</p>
+                </hgroup>
+                <hgroup>
+                    <h2>425 lb</h2>
+                    <p>Wet Weight</p>
+                </hgroup>
+                <hgroup>
+                    <h2>32.5 in</h2>
+                    <p>Seat Height</p>
+                </hgroup>
+                <hgroup>
+                    <h2>56.3</h2>
+                    <p>Wheel base</p>
+                </hgroup>
+            </div>
+            <div class="specs-data">
+                <div class="specs-data-item flex items-center justify-between">
+                    <h3>Engine</h3>
+                    <p>890 liquid-cooled, DOHC, Inline 3-cylinder.</p>
+                </div>
+                <div class="specs-data-item flex items-center justify-between">
+                    <h3>Torque</h3>
+                    <p>93.0 Nm at 7K RPM</p>
+                </div>
+                <div class="specs-data-item flex items-center justify-between">
+                    <h3>Power</h3>
+                    <p>117.3 HP at 10K RPM.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -109,7 +170,9 @@
         </div>
     </section>
 
-    <section class="gallery">
+    <section class="gallery relative">
+        <div class="bg-circle top-100 left-80"></div>
+
         <div class="gallery-container container flex flex-col items-center justify-center gap-2">
             <h2 class="text-7xl tracking-tighter text-balanced italic gradient-white">Shots</h2>
             <div class="gallery-images grid gap-3 max-w-1140">
@@ -127,12 +190,29 @@
                 </div>
             </div>
         </div>
+
+        <div class="bg-circle right-90 bottom-40"></div>
     </section>
 
     <section class="phrase flex flex-col items-center gap-6">
         <h1 class="text-4xl tracking-tighter text-balanced md:text-7xl gradient-white">Unleash your darkness.</h1>
         <img src="assets/bikes/mt-09/yamaha_white-iso.svg" alt="Yamaha Iso">
     </section>
+
+    <footer>
+        <div class="footer-container gap-8 flex flex-col items-center justify-center sm:flex-row sm:justify-around">
+            <div id="copyright" class="footer-copyright"></div>
+            <div class="text-center w-80 flex flex-col gap-4 items-center sm:items-end sm:text-right">
+                <p>Not affiliated to Yamaha Motor Company. This website is a demo project developed by <a href="https://dev.rdaphq.com">Rdap</a> as an example of his skills in the frontend development.</p>
+                <div class="footer-socials flex gap-3">
+                    <a class="text-2xl hover:text-white cursor-none" href="https://rdaphq.com/instagram"><i class="fi fi-brands-instagram"></i></a>
+                    <a class="text-2xl hover:text-white cursor-none" href="https://rdaphq.com/spotify"><i class="fi fi-brands-spotify"></i></a>
+                    <a class="text-2xl hover:text-white cursor-none" href="https://rdaphq.com/discord"><i class="fi fi-brands-discord"></i></a>
+                    <a class="text-2xl hover:text-white cursor-none" href="https://rdaphq.com/github"><i class="fi fi-brands-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
     
     <script src="scripts/script.js"></script>
     <script src="scripts/navbar.js"></script>

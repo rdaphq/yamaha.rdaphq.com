@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const colorOptions = document.querySelectorAll('.color-selector div');
     const bikeImage = document.getElementById('displayBike').querySelector('img');
 
@@ -27,15 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })
 
-    const toAbout = document.getElementById("toAbout");
+    const toSpecs = document.getElementById("toSpecs");
     const toShowcase = document.getElementById("toShowcase");
 
-    const about = document.getElementById("about");
+    const specs = document.getElementById("specs");
     const showcase = document.getElementById("showcase");
 
-    toAbout.addEventListener("click", () => {
+    toSpecs.addEventListener("click", () => {
         window.scrollTo({
-            top: Math.floor(about.offsetTop - 20),
+            top: Math.floor(specs.offsetTop - 20),
             behavior: "smooth"
         });
     })
@@ -58,5 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorRounded.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     }
 
-    window.addEventListener('mousemove', moveCursor)
+    window.addEventListener('mousemove', moveCursor);
+
+
+    const copyright = document.getElementById('copyright');
+    const year = new Date().getFullYear();
+
+    copyright.innerHTML = `© ${year} Rdap`;
 });
